@@ -29,16 +29,15 @@ public class Queue<T> {
             return null;
         }
 
-        return this.stack.getHead().getValue();
+        return this.queue.getHead().getValue();
+    }
+
+    public List<T> toList() {
+        return this.queue.toList();
     }
 
     @Override
     public String toString() {
-        return this.stack.toString();
+        return this.queue.toString();
     }
-
-    public List<T> toArray() {
-        return this.stack.toList();
-    }
-
 }

@@ -32,12 +32,12 @@ public class Stack<T> {
         return head.getValue() != null ? head.getValue() : null;
     }
 
+    public List<T> toList() {
+        return this.stack.toList();
+    }
+
     @Override
     public String toString() {
         return this.stack.toString();
-    }
-
-    public List<T> toArray() {
-        return this.stack.toList();
     }
 }
