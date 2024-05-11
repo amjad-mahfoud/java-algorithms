@@ -2,6 +2,7 @@ package sy.amjad.dataStrusture.linkedList;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import sy.amjad.dataStrusture.common.Node;
 
@@ -9,6 +10,7 @@ import java.util.*;
 import java.util.stream.Stream;
 
 @AllArgsConstructor
+@NoArgsConstructor
 public class LinkedList<T> {
 
     @Setter @Getter
