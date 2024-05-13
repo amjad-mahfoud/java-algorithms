@@ -24,7 +24,7 @@ public class LinkedList<T> {
         this.append(values);
     }
 
-    public  LinkedList<T> append(T value) {
+    public LinkedList<T> append(T value) {
         var newNode = new Node<T>( value, null);
 
         if (this.head == null) {
@@ -100,8 +100,9 @@ public class LinkedList<T> {
                 .toList();
     }
 
-    public LinkedList<T> insert(T value, int index) throws Exception {
-        throw new Exception("Not implemented yet!");
+    public LinkedList<T> insert(T value, int index) {
+        // TODO: insert at index
+        return this;
     }
 
     public Node<T> deleteTail(){
@@ -142,8 +143,24 @@ public class LinkedList<T> {
         return deletedNode;
     }
 
-    public LinkedList<T> reverse() throws Exception {
-        throw new Exception("Not implemented yet!");
+    public LinkedList<T> reverse() {
+        var currentNode = this.getHead();
+        var currentHead = this.getHead();
+
+        Node<T> previousNode = null;
+        Node<T> nextNode = null;
+
+        while (currentNode != null) {
+            nextNode = currentNode.getNext();
+            currentNode.setNext(previousNode);
+            previousNode = currentNode;
+            currentNode = nextNode;
+        }
+
+        this.setHead(previousNode);
+        this.setTail(currentHead);
+
+        return this;
     }
 
     @Override

@@ -11,6 +11,13 @@ public class Node<T> {
     private T value;
     @Getter @Setter
     private Node<T> next;
+    @Getter @Setter
+    private Node<T> prev;
+
+    public Node(T value, Node<T> next) {
+        this.value = value;
+        this.next = next;
+    }
 
     @Override
     public String toString() {

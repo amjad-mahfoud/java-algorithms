@@ -16,32 +16,43 @@ public class PlayGround {
         linkedList.remove(2);
         System.out.println(linkedList);
 
-        var usersLinkedList = new LinkedList<User>(null, null, Comparator.comparingInt(User::getId));
+        linkedList.remove(-5);
+        System.out.println(linkedList);
 
-        usersLinkedList.append(new User(1, "A"));
-        usersLinkedList.append(new User(2, "B"));
-        usersLinkedList.prepend(new User(3, "C"));
-        usersLinkedList.prepend(new User(3, "C"));
-        usersLinkedList.append(new User(4, "D"));
-        System.out.println(usersLinkedList);
+        linkedList.insert(2, 1);
+        System.out.println(linkedList);
 
-        usersLinkedList.remove(new User(3, "C"));
-        System.out.println(usersLinkedList);
-
-        LinkedList<Integer> fromArrayLinkedList = new LinkedList<Integer>(new Integer[] {1, 2, 3, 4, 5, 6, 7, 8, 9});
-        System.out.println(fromArrayLinkedList);
-
-        var head = fromArrayLinkedList.deleteHead();
-        System.out.println(head);
-        System.out.println(fromArrayLinkedList);
-
-        var tail = fromArrayLinkedList.deleteTail();
-        System.out.println(tail);
-
-        do {
-            fromArrayLinkedList.deleteTail();
-            System.out.println("List: " + fromArrayLinkedList);
-            System.out.println("Tail: " + fromArrayLinkedList.getTail());
-        } while (fromArrayLinkedList.getTail() != null);
+//        var usersLinkedList = new LinkedList<User>(null, null, Comparator.comparingInt(User::getId));
+//
+//        usersLinkedList.append(new User(1, "A"));
+//        usersLinkedList.append(new User(2, "B"));
+//        usersLinkedList.append(new User(3, "C"));
+//        usersLinkedList.append(new User(4, "D"));
+//        System.out.println(usersLinkedList);
+//        System.out.println("Current head: " + usersLinkedList.getHead());
+//        System.out.println("Current tail: " + usersLinkedList.getTail());
+//
+//        System.out.println(usersLinkedList.reverse());
+//        System.out.println("Current head: " + usersLinkedList.getHead());
+//        System.out.println("Current tail: " + usersLinkedList.getTail());
+//
+//        usersLinkedList.remove(new User(3, "C"));
+//        System.out.println(usersLinkedList);
+//
+//        LinkedList<Integer> fromArrayLinkedList = new LinkedList<Integer>(new Integer[] {1, 2, 3, 4, 5, 6, 7, 8, 9});
+//        System.out.println(fromArrayLinkedList);
+//
+//        var head = fromArrayLinkedList.deleteHead();
+//        System.out.println(head);
+//        System.out.println(fromArrayLinkedList);
+//
+//        var tail = fromArrayLinkedList.deleteTail();
+//        System.out.println(tail);
+//
+//        do {
+//            fromArrayLinkedList.deleteTail();
+//            System.out.println("List: " + fromArrayLinkedList);
+//            System.out.println("Tail: " + fromArrayLinkedList.getTail());
+//        } while (fromArrayLinkedList.getTail() != null);
     }
 }
