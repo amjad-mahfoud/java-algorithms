@@ -7,6 +7,7 @@ import lombok.Setter;
 import sy.amjad.dataStrusture.common.Node;
 
 import java.util.*;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @AllArgsConstructor
@@ -25,17 +26,15 @@ public class LinkedList<T> {
     }
 
     public LinkedList<T> append(T value) {
-        var newNode = new Node<T>( value, null);
+        var newNode = new Node<T>(value);
 
-        if (this.head == null) {
-            this.head = newNode;
-            this.tail = newNode;
-
-            return this;
+        if (this.getHead() == null) {
+            this.setHead(newNode);
+        } else {
+            this.tail.setNext(newNode);
         }
 
-        this.tail.setNext(newNode);
-        this.tail = newNode;
+        this.setTail(newNode);
 
         return this;
     }
@@ -51,7 +50,7 @@ public class LinkedList<T> {
     public LinkedList<T> prepend(T value){
         var newNode = new Node<T>( value, this.head);
 
-        this.head = newNode;
+        this.setHead(newNode);
 
         if (this.tail == null) {
             this.tail = newNode;
@@ -75,7 +74,6 @@ public class LinkedList<T> {
         var currentNode = this.head;
 
         if (currentNode != null) {
-            // If next node must be deleted then make next node to be a next next one.
             while (currentNode.getNext() != null) {
                 if (this.comparator.compare(currentNode.getNext().getValue(), value) == 0) {
                     deletedNode = currentNode.getNext();
@@ -101,7 +99,30 @@ public class LinkedList<T> {
     }
 
     public LinkedList<T> insert(T value, int index) {
-        // TODO: insert at index
+        var newNode = new Node<T>(value);
+
+        if (index == 0) {
+            this.prepend(value);
+            return this;
+        }
+
+        var currentNode = this.getHead();
+
+        for (int i = 0; i < index - 1 && currentNode != null; i++) {
+            currentNode = currentNode.getNext();
+        }
+
+        if (currentNode == null) {
+            throw new IndexOutOfBoundsException();
+        }
+
+        newNode.setNext(currentNode.getNext());
+        currentNode.setNext(newNode);
+
+        if (newNode.getNext() == null) {
+            this.setTail(newNode);
+        }
+
         return this;
     }
 
@@ -165,6 +186,6 @@ public class LinkedList<T> {
 
     @Override
     public String toString() {
-        return String.join(" -> ", this.toList().stream().map(Object::toString).toList());
+        return this.toList().stream().map(Object::toString).collect(Collectors.joining(" -> "));
     }
 }

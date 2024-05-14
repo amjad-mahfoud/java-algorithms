@@ -19,6 +19,10 @@ public class Node<T> {
         this.next = next;
     }
 
+    public Node(T value) {
+        this.value = value;
+    }
+
     @Override
     public String toString() {
         return this.value.toString();
